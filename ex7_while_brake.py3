@@ -1,4 +1,7 @@
 i=0
-while i<=20 :
+while True :
     print(i)
+    if i<=20 :
+        print("Завершение цикла")
+        break
     i+=1
