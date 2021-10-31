@@ -1,3 +1,5 @@
+# My python calc 
+
 ex = 0
 while ex != 1:
     print("Введите первое число:")

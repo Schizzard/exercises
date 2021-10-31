@@ -1,3 +1,5 @@
+# Example for using string methods
+
 my_string = "0123456789abcdefghijklmn"
 print(my_string)
 print(my_string.capitalize())

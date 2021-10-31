@@ -1,3 +1,5 @@
+# Example for using the break operator 
+
 i=0
 while True :
     print(i)

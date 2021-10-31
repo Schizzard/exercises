@@ -1,3 +1,5 @@
+# Example for using modules
+
 # Подключаем нужный модуль
 import time
 

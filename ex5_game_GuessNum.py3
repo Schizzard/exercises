@@ -1,3 +1,5 @@
+# Game "guess the number"
+
 ext = 0
 while ext != 1 :
     import random
