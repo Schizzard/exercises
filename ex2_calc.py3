@@ -20,6 +20,6 @@ while ex != 1:
         if num2 != 0:
             print("Результат = ", num1 / num2)
         else:
-            print("Делить на ноль нельзя")
+            print("Делить на ноль нельзя!")
     print("Выйти? 1=да")
     ex = int(input())
