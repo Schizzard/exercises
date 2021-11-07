@@ -20,7 +20,9 @@ def replace_first(items: list) -> Iterable:
     items_1 = items[1:] + [items[0]]
     return items_1
 
+
 ## Best solutions
+
 # Change items IN-PLACE.
 def replace_first1(items: list) -> list:
     if items:
