@@ -48,8 +48,12 @@ def nearest_value1(values: set, one: int) -> int:
         else : return my_ansv
 
 # Best solution
-def nearest_value(values: set, one: int) -> int: 
+def nearest_value2(values: set, one: int) -> int: 
     return min(sorted(values), key = lambda i: abs(i - one)) 
+
+# Best solution
+def nearest_value(values: set, one: int) -> int: 
+    return min(values, key=lambda n: (abs(one - n), n))
 
 
 if __name__ == '__main__':
