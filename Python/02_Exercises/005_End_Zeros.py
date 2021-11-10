@@ -15,7 +15,7 @@
 
 # Solve it like a number with division by 10 to the power of i
 
-def end_zeros(num: int) -> int:
+def end_zeros2(num: int) -> int:
         i = 1
         if num == 0 : return 1
         if num % 10 == 0 :
