@@ -42,6 +42,8 @@ def checkio1(words: str) -> bool:
 # Best solutions
 checkio3=lambda x:"www" in "".join('dw'[w.isalpha()] for w in x.split())
 
+import re
+
 def checkio2(words):
     return True if re.search('\D+\s\D+\s\D+', words) else False
 
