@@ -5,7 +5,6 @@
 # The text consists of numbers, spaces and letters from the English alphabet.
 
 # Input: A string.
-
 # Output: An int.
 
 # Example:
@@ -24,6 +23,9 @@ def sum_numbers(text: str) -> int:
     for w in text.split() : answ += int(w) if w.isnumeric() else 0
     return answ
 
+# Best solution
+def sum_numbers1(text: str) -> int:
+    return sum(map(int, filter(str.isdigit, text.split())))
 
 if __name__ == '__main__':
     print("Example:")
