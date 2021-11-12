@@ -21,9 +21,7 @@
 
 def sum_numbers(text: str) -> int:
     answ = 0
-    words = text.split()
-    for w in words :
-        answ += int(w) if w.isnumeric() else 0
+    for w in text.split() : answ += int(w) if w.isnumeric() else 0
     return answ
 
 
