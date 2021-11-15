@@ -30,6 +30,10 @@ def days_diff(a, b):
     diff = abs(first_date - second_date)
     return diff.days
 
+# Best solution
+def days_diff1(date1, date2):
+    return abs((datetime(*date1)-datetime(*date2)).days)
+
 
 if __name__ == "__main__":
     print("Example:")
