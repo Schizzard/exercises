@@ -22,6 +22,12 @@ def count_digits(text: str) -> int:
             i += 1
     return i
 
+# Best solution
+def count_digits1(text: str) -> int:
+    return sum(c.isdigit() for c in text)
+
+def count_digits2(text: str) -> int:
+    return sum(map(str.isdigit, text))
 
 if __name__ == '__main__':
     print("Example:")
