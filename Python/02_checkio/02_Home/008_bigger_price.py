@@ -34,6 +34,9 @@ def bigger_price(limit: int, data: list) -> list:
     newlist = sorted(data, key=lambda d: d["price"], reverse=True) 
     return newlist[0:limit]
 
+# Best solution
+def bigger_price1(limit, data):
+    return sorted(data, key=lambda x: x['price'], reverse=True)[:limit]
 
 if __name__ == '__main__':
     from pprint import pprint
