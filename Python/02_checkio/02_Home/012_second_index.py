@@ -19,9 +19,6 @@
 # second_index("find the river", "e") == 12
 # second_index("hi", " ") is None
 
-from typing import Union
-
-
 def second_index(text: str, symbol: str) -> int | None:
     """
         returns the second index of a symbol in a given text
