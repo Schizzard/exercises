@@ -43,6 +43,10 @@ def popular_words(text: str, words: list) -> dict:
         my_dict[fk] = text.count(fk)
     return my_dict
 
+# Best solution
+def popular_words(text, words):
+    lower_count = text.lower().split().count
+    return {word: lower_count(word) for word in words}
 
 if __name__ == '__main__':
     print("Example:")
