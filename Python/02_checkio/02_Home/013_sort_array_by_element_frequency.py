@@ -32,6 +32,9 @@ def frequency_sort(items):
             answ.append(i[0])
     return answ
 
+# Best solution
+def frequency_sort1(items):
+    return sorted(items, key=lambda x: (-items.count(x), items.index(x)))
 
 if __name__ == '__main__':
     print("Example:")
