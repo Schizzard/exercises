@@ -53,8 +53,22 @@ def safe_pawns(pawns: set) -> int:
                     defended +=1
                     break
     return defended
-        
 
+
+# Best solution 
+
+def getdiags(pawn):
+    c, r = map(ord, pawn)
+    return chr(c - 1) + chr(r - 1), chr(c + 1) + chr(r - 1)
+
+def safe_pawns(pawns):
+    return len([p for p in pawns if any(d in pawns for d in getdiags(p))])
+
+
+def safe_pawns(pawns):
+    return sum((any(chr(ord(l) + i) + str(int(d) - 1) in pawns for i in [-1, 1])) for l, d in pawns)
+
+    
 if __name__ == '__main__':
     #These "asserts" using only for self-checking and not necessary for auto-testing
     assert safe_pawns({"b4", "d4", "f4", "c3", "e3", "g5", "d2"}) == 6
