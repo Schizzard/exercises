@@ -12,6 +12,7 @@
 # split_list([1, 2, 3, 4, 5, 6]) == [[1, 2, 3], [4, 5, 6]]
 # split_list([1, 2, 3]) == [[1, 2], [3]]
 
+
 def split_list(items: list) -> list:
     return [items[0:int((len(items)+1)/2)], items[int((len(items)+1)/2)::]]
 
