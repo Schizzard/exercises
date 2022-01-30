@@ -17,6 +17,10 @@ def split_list(items: list) -> list:
     return [items[0:int((len(items)+1)/2)], items[int((len(items)+1)/2)::]]
 
 
+# best solution
+def split_list(items: list) -> list:
+    return [items[:(split_index := (len(items) + 1) // 2)], items[split_index:]]
+
 if __name__ == '__main__':
     print("Example:")
     print(split_list([1, 2, 3, 4, 5, 6]))
