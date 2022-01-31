@@ -34,6 +34,9 @@ def all_the_same1(elements: List[Any]) -> bool:
 def all_the_same(elements: List[Any]) -> bool:
     return elements.count(elements[-1]) == len(elements) if len(elements) else True
 
+# best solution
+def all_the_same(elements):
+   return elements[1:] == elements[:-1]
 
 if __name__ == '__main__':
     print("Example:")
