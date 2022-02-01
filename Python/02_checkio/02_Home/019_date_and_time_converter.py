@@ -29,7 +29,6 @@
 # 0 <= hours < 24
 # 0 <= minutes < 60
 import datetime
-from posixpath import split
 
 # first solution (just start typing immediately). Btw not so fast .-.
 def date_time(time: str) -> str:
@@ -44,15 +43,15 @@ def date_time(time: str) -> str:
 
 # best solution
 def date_time(time: str) -> str:
-    t=datetime.strptime(time,'%d.%m.%Y %H:%M')
-    return t.strftime(f'%-d %B %Y year %-H hour{"s" if t.hour!=1 else ""} %-M minute{"s" if t.minute!=1 else ""}')
+    t=datetime.datetime.strptime(time,'%d.%m.%Y %H:%M')
+    return t.strftime(f'%#d %B %Y year %#H hour{"s" if t.hour!=1 else ""} %#M minute{"s" if t.minute!=1 else ""}')
 
 # best solution
 def date_time(time: str) -> str:
-    dt = datetime.strptime(time, '%d.%m.%Y %H:%M')
+    dt = datetime.datetime.strptime(time, '%d.%m.%Y %H:%M')
     hour = 'hour' if dt.hour == 1 else 'hours'    
     minute = 'minute' if dt.minute == 1 else 'minutes'
-    return dt.strftime(f'%-d %B %Y year %-H {hour} %-M {minute}')  
+    return dt.strftime(f'%#d %B %Y year %#H {hour} %#M {minute}')  
 
 if __name__ == "__main__":
     print("Example:")
