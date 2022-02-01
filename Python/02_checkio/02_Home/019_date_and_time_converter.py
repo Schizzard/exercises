@@ -42,6 +42,18 @@ def date_time(time: str) -> str:
     my_date = datetime.datetime.strptime(time, format_in)
     return ' '.join([str(int(dmy[0])), str(my_date.strftime('%B')), str(dmy[2]), 'year', str(int(hms[0])), hrs_w, str(int(hms[1])), mnt_w]) 
 
+# best solution
+def date_time(time: str) -> str:
+    t=datetime.strptime(time,'%d.%m.%Y %H:%M')
+    return t.strftime(f'%-d %B %Y year %-H hour{"s" if t.hour!=1 else ""} %-M minute{"s" if t.minute!=1 else ""}')
+
+# best solution
+def date_time(time: str) -> str:
+    dt = datetime.strptime(time, '%d.%m.%Y %H:%M')
+    hour = 'hour' if dt.hour == 1 else 'hours'    
+    minute = 'minute' if dt.minute == 1 else 'minutes'
+    return dt.strftime(f'%-d %B %Y year %-H {hour} %-M {minute}')  
+
 if __name__ == "__main__":
     print("Example:")
     print(date_time("01.01.2000 00:00"))
