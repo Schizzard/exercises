@@ -9,8 +9,8 @@
 # having numbers or containing just numbers does not apply to the password 
 # longer than 9.
 # a string should not contain the word "password" in any case.
-# Input: A string.
 
+# Input: A string.
 # Output: A bool.
 
 # Example:
