@@ -64,6 +64,7 @@ MORSE = {
     "--...": "7",
     "---..": "8",
     "----.": "9",
+    "+": " "
 }
 
 # first solution (~20 min)
@@ -85,6 +86,16 @@ def morse_decoder(code):
     for w in code.split("   "):
         ww.append("".join(MORSE[l] for l in w.split(" ")))
     return " ".join(ww).capitalize()
+
+
+# best solution
+morse_decoder = lambda code: "".join([MORSE[i] for i in code.replace("   ", " + ").split()]).capitalize()
+
+
+# best solution
+def morse_decoder(c,k="y7ac-it-oe4gw5qr1zx-jb-p-6kf0du9-s--m--n2lv-3h---8"):
+ return ' '.join(''.join(k[int('1'+i.replace('.','3').replace('-','0'),6)%52]
+  for i in j.split()) for j in c.split('   ')).capitalize()
 
 
 if __name__ == "__main__":
