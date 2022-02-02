@@ -41,6 +41,28 @@ def words_order(text: str, words: list) -> bool:
         if len(words) == 0: return True
     return False
 
+# best solution
+def words_order(text, words):
+    text_words = {w for w in text.split() if w in words}
+    return list(sorted(text_words, key=text.index)) == words
+
+# best solution
+def words_order(text: str, words: list) -> bool:
+    # A word that appears twice make this simple.
+    if len(set(words)) != len(words):
+        return False
+    # Look for words indexes with a simple iteration on text words.
+    words = {word: -1 for word in words}  # A dict remembers insertion order.
+    for n, text_word in enumerate(text.split()):
+        if text_word in words and words[text_word] == -1:
+            words[text_word] = n
+    # Make sure all words are in the text and indexes are increasing.
+    last = -1
+    for index in words.values():
+        if index <= last:
+            return False
+        last = index
+    return True
 
 
 if __name__ == "__main__":
