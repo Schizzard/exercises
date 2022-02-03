@@ -38,6 +38,10 @@ def is_acceptable_password(password: str) -> bool:
     is_longer = len(password) > 9
     return is_long and (is_longer or (not(all_is_digit) and there_are_digit))
 
+# best solution 
+is_acceptable_password = lambda p: (not not __import__('re').search('[A-z]+[0-9]+', p) and len(p)>6) if len(p)<9 else True
+
+
 if __name__ == "__main__":
     # These "asserts" are used for self-checking and not for an auto-testing
     assert is_acceptable_password("short") == False

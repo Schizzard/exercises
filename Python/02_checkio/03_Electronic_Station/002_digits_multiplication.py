@@ -22,13 +22,15 @@
 
 # Precondition: 0 < number < 10^6
 
-
+#my solution
 def checkio(number: int) -> int:
     a=1
     for i in str(number).replace('0',''):
         a = a * int(i)
     return a
 
+# best solution
+checkio = lambda n: eval("*".join(i for i in str(n) if i != '0'))
 
 
 if __name__ == '__main__':
