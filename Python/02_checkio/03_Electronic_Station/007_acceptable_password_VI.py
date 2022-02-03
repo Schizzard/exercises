@@ -34,9 +34,23 @@
 # How it’s used: For password verification form. Also it's good to learn how 
 # the task can be evaluated.
 
+# my solution
 def is_acceptable_password(password: str) -> bool:
     return len({let for let in password}) > 2 and not("password" in password.lower()) and len(password) > 6 and (any([i.isdigit() for i in password]) and not(all([i.isdigit() for i in password])) or len(password) > 9)
 
+# bes solution
+def is_acceptable_password(password: str) -> bool:
+    # c1 : length should be bigger than 6
+    # c2 : contains at least one digit but it can't be all digits
+    # c3 : having numbers is not required for password longer than 10
+    # c4 : string should not contain word "password" in any case
+    # c5 : consist of 3 different letters
+    c1 = len(password) >= 6
+    c2 = any(map(str.isdigit, password)) and not password.isdigit()
+    c3 = len(password) >= 10
+    c4 = 'password' not in password.lower()
+    c5 = len(set(password)) >= 3
+    return c1 and (c2 or c3) and c4 and c5
 
 if __name__ == "__main__":
     # These "asserts" are used for self-checking and not for an auto-testing
