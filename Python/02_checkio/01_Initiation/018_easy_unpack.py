@@ -20,11 +20,19 @@
 # easy_unpack((1, 1, 1, 1)) == (1, 1, 1)
 # easy_unpack((6, 3, 7)) == (6, 7, 3)
 
+
 def easy_unpack(elements: tuple) -> tuple:
     """
         returns a tuple with 3 elements - first, third and second to the last
     """
     return (elements[0], elements[2], elements[-2])
+
+
+# best solution
+from operator import itemgetter
+easy_unpack = itemgetter(0, 2, ~1)             #-2 = b11111110; ~1 = b11111110;
+
+
 
 if __name__ == '__main__':
     print('Examples:')

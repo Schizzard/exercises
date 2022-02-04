@@ -7,7 +7,6 @@
 # Output: a boolean.
 
 # Example:
-
 # is_all_upper('ALL UPPER') == True
 # is_all_upper('all lower') == False
 # is_all_upper('mixed UPPER and lower') == False
@@ -16,8 +15,13 @@
 # Precondition: a-z, A-Z, 1-9 and spaces
 
 
+# my solution
 def is_all_upper(text: str) -> bool:
     return text.isupper()
+
+
+# best solution
+is_all_upper = str.isupper
 
 
 if __name__ == "__main__":

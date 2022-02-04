@@ -8,7 +8,6 @@
 # Output: Bool.
 
 # Example:
-
 # is_ascending([-5, 10, 99, 123456]) == True
 # is_ascending([99]) == True
 # is_ascending([4, 5, 6, 7, 3, 7, 9]) == False
@@ -19,14 +18,25 @@
 # Ryerson Chang School of Continuing Education by Ilkka Kokkarinen
 
 from typing import Iterable
+
+
+# my solution
 def is_ascending(items: Iterable[int]) -> bool:
     return items == [v for v in {i:1 for i in sorted(items)}.keys()]
+
+
+# best solution
+def is_ascending(items: Iterable[int]) -> bool:
+    return all(items[i] < items[i+1] for i in range(len(items)-1))
+
+
+# best solution
+is_ascending = lambda l: all(map(int.__lt__, l, l[1:]))
 
 
 if __name__ == '__main__':
     print("Example:")
     print(is_ascending([-5, 10, 99, 123456]))
-    print(sorted([-5, 10, 99, 123456]))
     
     # These "asserts" are used for self-checking and not for an auto-testing
     assert is_ascending([-5, 10, 99, 123456]) == True
