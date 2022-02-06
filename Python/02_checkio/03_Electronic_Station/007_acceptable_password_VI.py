@@ -39,7 +39,7 @@ def is_acceptable_password(password: str) -> bool:
 
 
 # bes solution
-def is_acceptable_password(password: str) -> bool:
+def is_acceptable_password1(password: str) -> bool:
     # c1 : length should be bigger than 6
     # c2 : contains at least one digit but it can't be all digits
     # c3 : having numbers is not required for password longer than 10
