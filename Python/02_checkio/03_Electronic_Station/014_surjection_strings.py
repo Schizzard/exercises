@@ -24,6 +24,7 @@
 # Precondition:
 # both strings are the same length
 
+# my solution
 def isometric_strings(a, b):
     d = {}
     for i in range(len(a)):
@@ -34,6 +35,12 @@ def isometric_strings(a, b):
                 return False
     return True
 
+
+# best solution
+def isometric_strings(str1: str, str2: str) -> bool:
+    return len(set(zip(str1, str2))) == len(set(str1))
+
+isometric_strings = lambda a, b: a.translate(str.maketrans(a, b)) == b
 
 if __name__ == "__main__":
     print("Example:")
