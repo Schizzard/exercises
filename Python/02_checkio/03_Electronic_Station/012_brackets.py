@@ -42,6 +42,7 @@
 # ("+" "-" "*" "/").
 # 0 < len(expression) < 10^3
 
+# my solution
 def checkio(expression):
     par = ''
     for i in range(len(expression)):
@@ -71,7 +72,16 @@ def checkio(expression):
                         return False
     return True if len(par) == 0 else False
 
-a = checkio("(((1+(1+1))))]")
+# best solution
+def checkio(data):
+    stack=[""]
+    brackets={"(":")","[":"]","{":"}"}
+    for c in data:
+        if c in brackets:
+            stack.append(brackets[c])
+        elif c in brackets.values() and c!=stack.pop():
+            return False
+    return stack==[""]
 
 #These "asserts" using only for self-checking and not necessary for auto-testing
 if __name__ == '__main__':
