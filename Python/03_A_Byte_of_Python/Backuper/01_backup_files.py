@@ -32,7 +32,6 @@ if make_one_archive:
     output_file = '"' + Backup_folder + '\\' + arch_name + '"'
     input_files = ' '.join(lines)
     mycmd = '"' + wr + '"' +  ' a -ep1 ' + output_file + ' ' + input_files
-    mycmd_2 = '"' + wr + '"' +  ' a -ep1 ' + output_file + ' ' + input_files    
     subprocess.run(shlex.split(mycmd))
 else:
     for folder in lines:
