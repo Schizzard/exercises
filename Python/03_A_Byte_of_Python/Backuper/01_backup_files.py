@@ -28,11 +28,12 @@ for line in p_file:
 
 
 if make_one_archive:
-        arch_name = "Backup_" + datetime.datetime.now().replace(microsecond=0).strftime('%Y-%m-%d_%H-%M-%S')
-        output_file = '"' + Backup_folder + '\\' + arch_name + '"'
-        input_files = ' '.join(lines)
-        mycmd = '"' + wr + '"' +  ' a -ep1 ' + output_file + ' ' + input_files
-        subprocess.run(shlex.split(mycmd))
+    arch_name = "Backup_" + datetime.datetime.now().replace(microsecond=0).strftime('%Y-%m-%d_%H-%M-%S')
+    output_file = '"' + Backup_folder + '\\' + arch_name + '"'
+    input_files = ' '.join(lines)
+    mycmd = '"' + wr + '"' +  ' a -ep1 ' + output_file + ' ' + input_files
+    mycmd_2 = '"' + wr + '"' +  ' a -ep1 ' + output_file + ' ' + input_files    
+    subprocess.run(shlex.split(mycmd))
 else:
     for folder in lines:
         arch_name = str(folder).replace('"','').split('\\')[-1] + " " + datetime.datetime.now().replace(microsecond=0).strftime('%Y-%m-%d_%H-%M-%S')
