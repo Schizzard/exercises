@@ -1,5 +1,4 @@
-# Step 10
-
+# Step 11
 
 # Solve 1 (my)
 a = [int(a) for a in input().split()]
