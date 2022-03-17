@@ -71,7 +71,7 @@ for c in dct:
 
 
 
-# Solve 2 (from comments)
+# Solve 3 (from comments)
 a=[input().split(';') for i in range(int(input()))]
 b={i:[] for i in set([i[0] for i in a])|set([i[2] for i in a])}
 for i in a:
