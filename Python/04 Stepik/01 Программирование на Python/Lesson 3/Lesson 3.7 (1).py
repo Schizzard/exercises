@@ -4,19 +4,11 @@
 Спартак;9;Зенит;10
 Локомотив;12;Зенит;3
 Спартак;8;Локомотив;15
-
 '''
 
-
 # Solve 1 (my)
-# s = int(input())
-# d = [input() for i in range(s)]
-
-s = 3
-d = ['Спартак;9;Зенит;10',
-     'Локомотив;12;Зенит;3',
-     'Спартак;8;Локомотив;15']
-
+s = int(input())
+d = [input() for i in range(s)]
 t = [i.split(';') for i in d]
 com_set = set()
 for i in range(len(t)):
