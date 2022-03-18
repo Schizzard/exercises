@@ -5,7 +5,7 @@ if platform.platform().startswith('Windows'):
 else:
     logging_file = os.path.join(os.getenv('HOME'),'logging_py.log')
 
-print('Сохраняем файл логов в ', logging_file)
+print('Сохраняем файл логов в', logging_file)
 
 logging.basicConfig(
     level=logging.DEBUG,
