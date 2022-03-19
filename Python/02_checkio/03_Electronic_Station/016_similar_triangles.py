@@ -17,8 +17,11 @@
 # Precondition:
 # -10 ≤ x(, y) coordinate ≤ 10
 
+# my solution
 from math import sqrt
 from typing import List, Tuple
+
+
 Coords = List[Tuple[int, int]]
 
 def cosA(ax,ay,bx,by): 
@@ -51,3 +54,20 @@ if __name__ == '__main__':
     assert similar_triangles([(1, 0), (1, 2), (2, 0)], [(3, 0), (5, 4), (5, 0)]) is True, 'scaling and reflection'
     assert similar_triangles([(1, 0), (1, 3), (2, 0)], [(3, 0), (5, 5), (5, 0)]) is False, 'different #2'
     print("Coding complete? Click 'Check' to earn cool rewards!")
+
+
+# best solution
+from itertools import starmap
+from sympy.geometry import Point, Polygon, are_similar
+
+def poly(points):
+    return Polygon(*starmap(Point, points))
+
+def similar_triangles(coords_1, coords_2):
+    return are_similar(poly(coords_1), poly(coords_2))
+
+# best solution
+i=__import__
+s=lambda T:sorted((z-x)**2+(t-y)**2 for(x,y),(z,t) in i('itertools').combinations(T,2))
+similar_triangles=lambda*T:len(set(map(i('fractions').Fraction,*map(s,T))))==1
+
