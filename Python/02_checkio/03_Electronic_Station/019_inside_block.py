@@ -37,12 +37,12 @@
 # point[0] ≥ 0 and point[1] ≥ 0
 
 from typing import Tuple
-from itertools import starmap
 from sympy import Point, Polygon
 
 def is_inside(polygon: Tuple[Tuple[int, int], ...], point: Tuple[int, int]) -> bool:
-    return Polygon.encloses_point(Polygon(*starmap(Point, polygon)), point) or bool(Polygon.intersection(Polygon(*starmap(Point, polygon)), Point(point)))
-
+    poly = Polygon(*polygon)
+    p = Point(point)
+    return Polygon.encloses_point(poly, p) or bool(Polygon.intersection(poly, p))
 
 if __name__ == '__main__':
     assert is_inside(((1, 1), (1, 3), (3, 3), (3, 1)),
