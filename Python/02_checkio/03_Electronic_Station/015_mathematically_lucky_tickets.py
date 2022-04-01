@@ -70,11 +70,32 @@
 
 # Precondition: |digits| == 6
 
-def try_get_100(data: list):
+
+
+def goo(data: list):
     for comb in data:
-        for i in comb:
-            pass
-            
+        a = try_get_100(comb)
+        return a
+
+def try_get_100(comb: list):
+    for i in range(len(comb)):
+        res=[]
+        if len(comb[:i]) > 0:
+            res=res+comb[:i]
+        if len(comb[i:i+2]) > 1:
+            res.append(comb[i:i+2])
+        else:
+            res=res+comb[i:i+2]
+        res=res+comb[i+2:]
+        if len(res) > 2:
+            try_get_100(res)
+        else:
+            return signs(res)
+        
+
+def signs(expr):
+    return expr
+
 
 def get_combinations(p='', data=''):
     c=[]
@@ -100,6 +121,24 @@ def checkio(data):
         sss[i] = sss[i].split() 
     return sss
 
+# best solution
+# def checkio(data):
+#     return not any(abs(x - 100) < 0.00001 for x in comb_values(data))
+
+# def comb_values(s):
+#     yield int(s)
+#     for i in range(len(s) - 1):
+#         for l in comb_values(s[:i + 1]):
+#             for r in comb_values(s[i + 1:]):
+#                 yield l + r
+#                 yield l - r
+#                 yield l * r
+#                 if r != 0: yield l * 1.0 / r
+
+
+
+checkio('595347')
+goo([[1, 2, 3, 4],[1, 2, 3, 4, 5]])
 cc = checkio('123456')
 try_get_100(cc)
 print(cc)
