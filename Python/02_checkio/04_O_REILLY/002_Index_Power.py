@@ -32,6 +32,11 @@ def index_power(array: list, n: int) -> int:
     return array[n]**n if n < len(array) else -1
 
 
+def index_power(array, n):
+    try: return array[n] ** n
+    except IndexError: return -1
+
+
 if __name__ == '__main__':
     print('Example:')
     print(index_power([1, 2, 3, 4], 2))

@@ -14,8 +14,15 @@
 # is_majority([True, True, False, True, False]) == True
 # is_majority([True, True, False]) == True
 
+
+# my solution
 def is_majority(items: list) -> bool:
     return items.count(True) > items.count(False)
+
+
+# best solution
+def is_majority(items: list) -> bool:
+    return sum(items) > len(items) / 2
 
 
 if __name__ == '__main__':

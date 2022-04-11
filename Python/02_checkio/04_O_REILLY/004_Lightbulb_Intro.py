@@ -52,8 +52,14 @@ from datetime import datetime
 from typing import List
 
 
+# my solution
 def sum_light(els: List[datetime]) -> int:
     return int(sum(c.total_seconds() for c in list(map(lambda xy: xy[1]-xy[0], zip(els[::2], els[1::2])))))
+
+
+# best solution
+def sum_light(els: List[datetime]) -> int:
+    return sum([(b - a).total_seconds() for a, b in zip(els[::2], els[1::2])])
 
 
 if __name__ == '__main__':
