@@ -50,11 +50,19 @@ from datetime import datetime
 from typing import List, Optional
 
 
-# def sum_light(els: List[datetime]) -> int:
-#     return int(sum(c.total_seconds() for c in list(map(lambda xy: xy[1]-xy[0], zip(els[::2], els[1::2])))))
-
+# my solution
 def sum_light(els: List[datetime], start_watching: Optional[datetime] = None) -> int:
-    return int(sum(c.total_seconds() for c in list(map(lambda xy: xy[1]-xy[0], zip(els[::2], els[1::2])))))
+    els2 = []
+    if start_watching is None:
+        start_watching = els[0]
+    for a, b in zip(els[::2], els[1::2]):
+        if a < start_watching and b < start_watching:
+            continue
+        if a < start_watching and b >= start_watching:
+            els2 += start_watching, b
+        else:
+            els2 += a, b
+    return int(sum([(b - a).total_seconds() for a, b in zip(els2[::2], els2[1::2])]))
 
 
 if __name__ == "__main__":
