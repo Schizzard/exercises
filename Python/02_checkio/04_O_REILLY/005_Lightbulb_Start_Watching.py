@@ -65,6 +65,27 @@ def sum_light(els: List[datetime], start_watching: Optional[datetime] = None) ->
     return int(sum([(b - a).total_seconds() for a, b in zip(els2[::2], els2[1::2])]))
 
 
+# best solution
+def sum_light(els: List[datetime], start_watching: Optional[datetime] = None) -> int:
+    return sum(
+        (max(start_watching or els[i+1], els[i+1]) -
+         max(start_watching or els[i], els[i])).total_seconds()
+        for i in range(0, len(els), 2)
+    )
+
+
+# best solution
+def sum_light(els: List[datetime], start_watching: Optional[datetime] = None) -> int:
+    """how long the light bulb has been turned on"""
+    return sum(
+        (
+            max(start_watching or end, end) -
+            max(start_watching or start, start)
+        ).total_seconds()
+        for start, end in zip(els[::2], els[1::2])
+    )
+
+
 if __name__ == "__main__":
     print("Example:")
     print(
