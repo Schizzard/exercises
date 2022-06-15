@@ -44,6 +44,14 @@ def checkio(data: List[int]):
     data.sort()
     return (data[len(data)//2] + data[::-1][len(data)//2])/2
 
+
+# best solution
+def checkio(data):
+    data.sort()
+    half = len(data) // 2
+    return (data[half] + data[~half]) / 2
+
+
 # These "asserts" using only for self-checking and not necessary for auto-testing
 if __name__ == '__main__':
     print("Example:")

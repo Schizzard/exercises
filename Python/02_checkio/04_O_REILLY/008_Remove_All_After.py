@@ -27,6 +27,14 @@ def remove_all_after(items: list, border: int) -> Iterable:
     return items if border not in items else items[0:items.index(border)+1]
 
 
+# best solution
+def remove_all_after(items: List, border: int) -> Iterable:
+    for item in items:
+        yield item
+        if item == border:
+            return
+
+
 if __name__ == '__main__':
     print("Example:")
     print(list(remove_all_after([1, 2, 3, 4, 5], 3)))
