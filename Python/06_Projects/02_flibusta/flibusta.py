@@ -42,5 +42,5 @@ def scrape(request_text):
             os.makedirs(os.path.dirname(full_path), exist_ok=True)
             open(os.path.join(full_path), "wb").write(r.content)
 
-search_string = 'Двери восприятия'
+search_string = str(input())
 response_2 = scrape(search_string)
