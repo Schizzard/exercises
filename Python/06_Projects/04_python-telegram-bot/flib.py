@@ -30,7 +30,7 @@ def scrape_books(request_text):
     li_list = target_ul.find_all("li")
 
 
-    link_list = [a for a in (("http://flibusta.is" + l.a.get('href')) for l in li_list)]
+    link_list = [a for a in (("http://flibusta.is" + l.a.get('href') + '/') for l in li_list)]
     title_list = [b for b in (l.text for l in li_list)]
     book_id_list = [str(l.a.get('href')).replace('/b/','') for l in li_list]
     
@@ -41,7 +41,9 @@ def scrape_books(request_text):
         d[i] = {"id":book_id_list[i],"content":{}}
         d[i]["content"] = {'title': title_list[i], "url": link_list[i], "formats": {}, "cover": {}}
 
-    return d # DONE: 1
+    books_j = json.dumps(d)
+    return books_j # DONE: 1
+
 
 def get_book_formats(book_url):
     available_formats = []
@@ -90,6 +92,9 @@ def download_book(book_j, format):
 
     indexx = str(b_response.headers['content-disposition']).index('=')
     b_filename = b_response.headers['content-disposition'][indexx+1::].replace('\"','')
+    if b_filename.endswith('.fb2.zip'):
+        b_filename = b_filename.removesuffix('.zip')
+
     b_full_path = os.path.join(os.getcwd(), "books", book_id, b_filename)
     os.makedirs(os.path.dirname(b_full_path), exist_ok=True)
     open(os.path.join(b_full_path), "wb").write(b_response.content)
@@ -99,7 +104,29 @@ def download_book(book_j, format):
     open(os.path.join(c_full_path), "wb").write(c_response.content)
 
     
+def main():
+    print("Введите название книги (без автора)")
+    search_string = str(input())
+    books_j = scrape_books(search_string)
+    books = json.loads(books_j)
+
+    print('Выберите книгу (номер)')
+    for i in range(len(books)):
+        print(str(i) + ' : ' + books[str(i)]["content"]['title'])
+
+    chosen_book_n = str(input())
+
+    book = books[chosen_book_n]
+    book_j = json.dumps(book)
+    book_j = get_book_formats_urls(book_j)
+    book_j = get_book_cover_link(book_j)
 
 
-search_string = str(input())
-response_2 = scrape_books(search_string)
+    print('Выберите формат (ввести строкой)')
+    chosen_format = str(input())
+
+    download_book(book_j, chosen_format)
+    pass
+
+if __name__ == '__main__':
+    main()
