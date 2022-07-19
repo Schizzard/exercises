@@ -45,7 +45,7 @@ def button(update: Update, context: CallbackContext) -> None:
 
 def help_command(update: Update, context: CallbackContext) -> None:
     """Displays info on how to use the bot."""
-    update.message.reply_text("Use /start to test this bot.")
+    update.message.reply_text("Нажмие /start чтобы начать")
 
 
 def main() -> None:
