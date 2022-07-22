@@ -9,8 +9,6 @@ import os
 formats = ['fb2', 'epub', 'mobi', 'pdf']
 site = 'http://flibusta.is'
 
-# TODO:(Превратить в ООП добавить класс Book)
-
 def get_page(url):
     r = urllib.request.urlopen(url)
     html_bytes  = r.read()
@@ -46,15 +44,6 @@ def scrape_books(request_text):
     books_j = json.dumps(d)
     return books_j # DONE: 1
 
-def get_book_by_id(id):
-    book_url = site + '/' + id
-    sp = get_page(book_url)
-    target_div = sp.find('div', attrs={'class':'clear-block', 'id':'main'})
-    target_h1 = target_div.find('h1', attrs={'class': 'title'})
-    title = target_h1.text
-    cover = 1
-    formats = 1
-    
 
 def get_book_formats(book_url):
     available_formats = []
