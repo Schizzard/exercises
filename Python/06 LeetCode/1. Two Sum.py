@@ -43,6 +43,27 @@ class Solution:
                     return [i, ii]
 
 
+# solution from comments
+class Solution2:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        """
+        to check if any two element can sum up to target
+        we can use greedy algorithm to iterate through the list
+
+        record any needed(sum - element) and the index in a dict, 
+        and check if any element appears in the dict
+        if so, then we have the indexes
+
+            time: O(N**2), memory: O(N)
+        """
+
+        need = {}
+
+        for i, n in enumerate(nums):
+            if n in need:
+                return [need[n], i]
+            need[target-n] = i
+
 
 a = Solution
 assert a.twoSum(a, [1, 7, 11, 2, 15], 9) == [1, 3]
