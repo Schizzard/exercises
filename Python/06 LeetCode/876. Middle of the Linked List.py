@@ -52,3 +52,4 @@ n5.next = None
 
 a = Solution
 assert a.middleNode(a, head=n1) == [3,4,5]
+print('Done!')

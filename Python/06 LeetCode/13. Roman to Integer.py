@@ -65,3 +65,4 @@ class Solution:
 
 a = Solution
 assert a.romanToInt(a, s='MCMXCIV') == 1994
+print('Done!')

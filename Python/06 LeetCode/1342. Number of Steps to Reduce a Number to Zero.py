@@ -16,3 +16,4 @@ class Solution:
 
 a=Solution
 assert a.numberOfSteps(num = 14) == 6
+print('Done!')

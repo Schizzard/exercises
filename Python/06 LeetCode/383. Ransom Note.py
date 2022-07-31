@@ -40,3 +40,4 @@ magazine = "efjbdfbdgfjhhaiigfhbaejahgfbbgbjagbddfgdiaigdadhcfcj"
 
 a = Solution
 assert a.canConstruct2(a, ransomNote=ransomNote, magazine=magazine) == True
+print('Done!')

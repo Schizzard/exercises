@@ -17,3 +17,4 @@ class Solution:
 data = [[1,2,3],[3,2,1]]
 a=Solution
 assert a.maximumWealth(accounts=data) == 6
+print('Done!')

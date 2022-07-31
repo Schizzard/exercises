@@ -34,3 +34,4 @@ n4.next = None
 
 a = Solution
 assert a.isPalindrome(a, head=n1) == True
+print('Done!')

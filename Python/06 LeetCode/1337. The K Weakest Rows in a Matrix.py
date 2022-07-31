@@ -49,3 +49,4 @@ mat = [[1,1,0,0,0],
 
 a = Solution
 assert a.kWeakestRows(a, mat=mat, k=k) == [2,0,3]
+print('Done!')
